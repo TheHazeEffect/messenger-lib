@@ -1,11 +1,45 @@
-import messages.Message;
+import messages.*;
+import phones.*;
+import storage.*;
+
+import java.util.Scanner;
 
 public class Driver {
 	public static void main(String[] args)
 	{
-		System.out.println("Words");
-		Message mes = new Message();
-	
+		
+		
+		Message messages[] = new Message[2];
+		Scanner input = new Scanner(System.in);
+		
+		//Create TextMessage and add it to message array 
+		System.out.println("Enter Information for a TextMessage");
+		messages[0] = new TextMessage();
+		messages[0].setData(input.next());
+		
+		// Create photo message and add it to message array
+		System.out.println("Enter Information for a PhotoMessage");
+		messages[1] = new PhotoMessage();
+		messages[1].setData(input.next());
+		
+		input.close(); // Close Scanner to avoid memory leaks
+		
+		StorageProvider googlecloud = new Google();
+		Android Galaxyj7 = new Android(googlecloud);
+		
+		//Sending all messages from collections using android send method 
+		for(int i=0;i<messages.length;i++)
+		{
+			Galaxyj7.send(messages[i]);
+		}
+		
+		//Emptying Message collection
+		for(int i=0;i<messages.length;i++)
+		{
+			messages[i] = null;
+		}
+		
+		Galaxyj7.viewAllMessages();
 	}
 
 }

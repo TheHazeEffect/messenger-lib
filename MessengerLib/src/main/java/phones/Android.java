@@ -5,23 +5,21 @@ import protocols.MessageProtocol;
 import storage.StorageProvider;
 
 public class Android extends Phone implements MessageProtocol{
-	Android(StorageProvider storage){
+	public Android(StorageProvider storage){
 		super(storage);
 	}
 
 	public boolean send(Message message) {
-		// TODO Auto-generated method stub
-		return false;
+		super.getStorageProvider().save(message);
+		return true;
 	}
 
 	public boolean receive(Message message) {
-		// TODO Auto-generated method stub
+		super.getStorageProvider().save(message);
 		return false;
 	}
 	
-	public void viewAllMessages()
-	{
-		
-	}
+	
+
 
 }

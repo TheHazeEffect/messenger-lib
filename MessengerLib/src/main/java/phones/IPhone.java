@@ -11,12 +11,12 @@ public final class IPhone extends Phone implements MessageProtocol{
 	}
 	
 	public boolean send(Message message) {
-		
+		getStorageProvider().save(message);
 		return false;
 	}
 	
 	public boolean receive(Message message) {
-		
+		getStorageProvider().save(message);
 		return false;	
 	}
 }
