@@ -24,8 +24,7 @@ public class Driver {
 		
 		input.close(); // Close Scanner to avoid memory leaks
 		
-		StorageProvider googlecloud = new Google();
-		Android Galaxyj7 = new Android(googlecloud);
+		Android Galaxyj7 = new Android();
 		
 		//Sending all messages from collections using android send method 
 		for(int i=0;i<messages.length;i++)
