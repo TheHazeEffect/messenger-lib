@@ -2,12 +2,13 @@ package phones;
 
 import messages.Message;
 import protocols.MessageProtocol;
+import storage.ICloud;
 import storage.StorageProvider;
 
 public final class IPhone extends Phone implements MessageProtocol{
 	
-	IPhone(StorageProvider storage){
-		super(storage);
+	IPhone(){
+		super(new ICloud());
 	}
 	
 	public boolean send(Message message) {
